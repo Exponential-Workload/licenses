@@ -1,1 +1,1 @@
-/home/arch/licenses/licenses/FDL-1.3/FDL-1.3.md
+FDL-1.3.md

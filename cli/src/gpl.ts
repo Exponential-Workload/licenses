@@ -8,7 +8,8 @@ export const licensesDir = path.resolve(__dirname, '../../licenses');
 export const dlGpl = async () => {
   const sym = (linkTarget: string, linkFrom: string) => {
     if (fs.existsSync(linkFrom)) fs.unlinkSync(linkFrom);
-    fs.symlinkSync(linkTarget, linkFrom);
+    const linkValue = path.relative(path.dirname(linkFrom), linkTarget);
+    fs.symlinkSync(linkValue, linkFrom);
   }
   const handleDirLinks = (v: string): void => {
     // not a link guard

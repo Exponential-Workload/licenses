@@ -1,1 +1,1 @@
-/home/arch/licenses/licenses/GPL-3.0/GPL-3.0.rst
+GPL-3.0.rst

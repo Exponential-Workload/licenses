@@ -1,1 +1,1 @@
-/home/arch/licenses/licenses/AGPL-3.0/AGPL-3.0.md
+AGPL-3.0.md

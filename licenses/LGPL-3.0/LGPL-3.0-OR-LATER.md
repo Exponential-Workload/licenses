@@ -1,1 +1,1 @@
-/home/arch/licenses/licenses/LGPL-3.0/LGPL-3.0.md
+LGPL-3.0.md
