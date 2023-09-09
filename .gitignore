@@ -1,3 +1,4 @@
 /hashed
 /*.json
 .ignore.json
+.parcel-cache

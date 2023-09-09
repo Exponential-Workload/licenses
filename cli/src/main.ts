@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'fs';
 import crypto from 'crypto';
-import { dlGpl, licensesDir as lDir } from './gpl';
+import { dlGpl, licensesDir as lDir } from './gpl.js';
 import { basename, extname } from 'path';
 
 (async () => {
@@ -11,7 +11,7 @@ import { basename, extname } from 'path';
     return stat.isDirectory() && !stat.isSymbolicLink() && !v.includes('OR-LATER') && !v.includes('ONLY');
   }).map(v => [
     v,
-    readdirSync(lDir + '/' + v).filter(v2 => !statSync(lDir + '/' + v + '/' + v2).isSymbolicLink() && !v2.includes('OR-LATER') && !v2.includes('ONLY')).map(v2 => [
+    readdirSync(lDir + '/' + v).filter((v2: string) => !statSync(lDir + '/' + v + '/' + v2).isSymbolicLink() && !v2.includes('OR-LATER') && !v2.includes('ONLY')).map((v2: string) => [
       extname(v2).substring(1),
       v2,
       lDir + '/' + v,
@@ -28,7 +28,7 @@ import { basename, extname } from 'path';
   for (const [license, files] of Object.entries(licensesObject)) {
     hashesObj[license] = {};
     licensesObj[license] = {};
-    for (const [ext, file, dir, hash] of files) {
+    for (const [ext, file, dir, hash] of (files as string[][])) {
       hashesObj[license][ext] = hash;
       const licenseText = readFileSync(dir + '/' + file);
       licensesObj[license][ext] = licenseText.toString();
